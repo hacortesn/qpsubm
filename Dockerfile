@@ -62,19 +62,6 @@ RUN \
 
 RUN phantomjs --version
 
-# ----------- Install ActiveMQ -------------#
-RUN \
-  wget -O /tmp/activemq.tar.gz http://archive.apache.org/dist/activemq/$ACTIVEMQ_VERSION/apache-activemq-$ACTIVEMQ_VERSION-bin.tar.gz && \
-  cd /tmp && \
-  tar zxf /tmp/activemq.tar.gz && \
-  ls /tmp && \
-  mv /tmp/apache-activemq* $ACTIVEMQ_PATH && \
-  rm /tmp/activemq.tar.gz
-
-  WORKDIR $ACTIVEMQ_PATH
-  EXPOSE 61616 8161
-  #EXPOSE 61612 61613 61616 8161
-
 # ----------- Configure SSH -------------
 
 #RUN echo deb http://archive.ubuntu.com/ubuntu trusty main universe > /etc/apt/sources.list.d/trusty.list
